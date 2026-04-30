@@ -5,7 +5,11 @@
   margin: 0;
   padding: 0;
 }
-
+.devTools {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+}
 body {
   background-color: #f0ede6;
   display: flex;
@@ -35,10 +39,12 @@ header {
 /* ── page center ── */
 main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   flex: 1;
   padding: 40px 0;
+  gap: 20px;
 }
 
 /* ── device shell ── */
