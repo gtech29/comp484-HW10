@@ -4,7 +4,6 @@ document.querySelector("#logInfo").addEventListener("click", () => {
 
 document.querySelector("#logWarning").addEventListener("click", logWarning);
 
-
 function logWarning() {
   console.warn(
     "Warning: Zorp is dangerously close to eating the debug button.",
@@ -64,5 +63,14 @@ document.querySelector("#causeViolation").addEventListener("click", (e) => {
 });
 
 document.querySelector("#cause404").addEventListener("click", (e) => {
-  fetch("/coffee");
+  fetch("/snacks");
+});
+
+// Intentional Bug
+document.querySelector("#calculateSnacks").addEventListener("click", (e) => {
+  const snack1 = document.querySelector("#snack1").value;
+  const snack2 = document.querySelector("#snack2").value;
+  let calculateResult = snack1 + snack2;
+  document.querySelector("#snackResult").textContent = `Zorp has ${calculateResult} snacks`;
+
 });
