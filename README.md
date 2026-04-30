@@ -1,51 +1,67 @@
-# GigaPet — COMP 484 Project 2
 
-An online pet simulator game written in HTML, CSS and JavaScript (jQuery).
-Take care of **ZORP**, an alien pet, by feeding, playing, exercising, and putting him to sleep.
+# GigaPet — COMP 484 HW10
+
+This version includes a Chrome DevTools practice page for logging, filtering, browser errors, and JavaScript debugging.
+
+Original Project 2 version: https://github.com/gtech29/comp484-project2
 
 ## Repo Link
 
-https://github.com/gtech29/comp484-project2
+https://github.com/gtech29/comp484-HW10
 
-## Github Pages Link
+## GitHub Pages Link
 
-[gtech29.github.io/comp484-project2](https://gtech29.github.io/comp484-project2/ "https://gtech29.github.io/comp484-project2/")
+[https://gtech29.github.io/comp484-HW10/](https://gtech29.github.io/comp484-HW10/)
 
 ## How to Run
 
-Open `index.html` in Google Chrome. No build step or server required.
+Open the GitHub Pages link in Google Chrome:
 
-## Features
+[https://gtech29.github.io/comp484-HW10/](https://gtech29.github.io/comp484-HW10/)
 
-- **Pet stats** — Happiness, Weight, Hunger, Energy, and Age tracked in real time
-- **Animated speech bubble** — Zorp reacts to every button press (no alerts or console logs)
-- **Dynamic sprite** — Zorp's image changes based on happiness level (normal / happy / sad)
-- **Sad mode** — The device color scheme shifts when Zorp's happiness drops below 3
-- **Stat bars** — Visual progress bars for each stat update smoothly on every action
+You can also open `index.html` locally in Google Chrome. For the DevTools examples, GitHub Pages or Live Server is recommended so browser and network messages display correctly.
 
-## Buttons
+## Report
 
-| Button   | Effect                                          |
-| -------- | ----------------------------------------------- |
-| FEED     | Happiness ↑, Weight ↑, Hunger ↓, Energy ↑   |
-| PLAY     | Happiness ↑, Weight ↓, Hunger ↑, Energy ↓   |
-| EXERCISE | Happiness ↓, Weight ↓, Hunger ↑, Energy ↓↓ |
-| SLEEP    | Energy ↑, Happiness ↑, Hunger ↑              |
+The Chrome DevTools implementation report with screenshots is included in:
 
-All the stats are bounded in a range of 0 to 10.
+`assets/devtools-report.pdf`
 
-## jQuery Methods Used
+## Chrome DevTools Examples
 
-1. **`.fadeIn(duration)`** — Fades the speech bubble in and out in less than 400 ms, making the reactions of Zorp a slow rolling entrance instead of a bang.
-2. **`.addClass(className)` / `.removeClass(className)`** — The sad-mode CSS class on the device shell is dynamically switched on or off, when the happiness of Zorp is under 3, and not the CSS file while it is running looks any different.
+The DevTools practice page includes examples for:
+
+- Log Info
+- Log Warning
+- Log Error
+- Log Table
+- Log Group
+- Log Custom
+- 404 network error
+- TypeError
+- Violation warning
+- Filtering by log level, text, regular expression, source, and user messages
+- Reproducing a bug
+- Using the Sources panel
+- Setting a line-of-code breakpoint
+- Checking variable values
+- Using the Scope pane
+- Using Watch expressions
+- Testing a fix in the Console
+- Applying the final fix
 
 ## Project Structure
 
-```
-comp484-project2/
-├── index.html        # Page structure and stat display
-├── script.js         # Game logic and jQuery interactions
-├── style.css         # Styling and sad-mode theme
+```text
+comp484-HW10/
+├── index.html          # Main GigaPet page
+├── style.css           # Main project styling and sad-mode theme
+├── script.js           # Game logic and jQuery interactions
+├── devtools.html       # Chrome DevTools practice page
+├── devTools.css        # Styling for the DevTools practice page
+├── tools.js            # Console logging, browser error, and debugging examples
+├── assets/
+│   └── devtools-report.pdf
 └── images/
     ├── zorp-normal.png
     ├── zorp-happy.png
