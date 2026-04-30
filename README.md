@@ -1,5 +1,5 @@
 
-# GigaPet — COMP 484 HW10
+# COMP 484 HW10
 
 This version includes a Chrome DevTools practice page for logging, filtering, browser errors, and JavaScript debugging.
 
