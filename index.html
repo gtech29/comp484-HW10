@@ -16,13 +16,14 @@
   <header>
     <div class="navbar">
       <div class="nav-item">Welcome to Juan's GigaPet</div>
-      
+
     </div>
   </header>
 
   <main class="page-wrapper">
+    <a class="scroll-cue" href="#devtools">HW10 DevTools Examples ↓</a>
     <div class="device-wrapper">
-      
+
 
       <!-- screen -->
       <section class="screen">
@@ -69,6 +70,11 @@
         </div>
       </section>
 
+      <section class="snack-control" aria-label="Snack amount for Feed action">
+        <label for="snackAmount">SNACKS</label>
+        <input type="number" id="snackAmount" name="snackAmount" value="2" min="1" max="5">
+      </section>
+
       <!-- buttons -->
       <section class="button-container">
         <button class="feed-button">FEED</button>
@@ -88,11 +94,14 @@
 
     </div>
 
-    <section class="devtools-panel" aria-labelledby="devtools-heading">
+
+
+    <section id="devtools" class="devtools-panel" aria-labelledby="devtools-heading">
       <div class="devtools-copy">
         <span class="devtools-kicker">HW10</span>
         <h2 id="devtools-heading">DevTools Debugging</h2>
-        <p>Open Chrome DevTools on this GigaPet page to inspect console messages, network errors, and breakpoints in script.js.</p>
+        <p>Open Chrome DevTools on this GigaPet page to inspect console messages, network errors, and the Feed bug in
+          script.js.</p>
       </div>
 
       <div class="devtools-actions" aria-label="Chrome DevTools console examples">
@@ -108,19 +117,14 @@
       </div>
 
       <div class="snack-debugger" aria-labelledby="snack-debugger-heading">
-        <h3 id="snack-debugger-heading">Snack Calculator</h3>
-        <div class="snack-fields">
-          <div class="snack-field">
-            <label for="snack1">First Snack</label>
-            <input type="number" id="snack1" name="snack1" value="2">
-          </div>
-          <div class="snack-field">
-            <label for="snack2">Second Snack</label>
-            <input type="number" id="snack2" name="snack2" value="3">
-          </div>
-        </div>
-        <button type="button" id="calculateSnacks">Calculate Snacks</button>
-        <output id="snackResult" name="snackResult" for="snack1 snack2">Zorp has ? snacks</output>
+        <h3 id="snack-debugger-heading">Pet Feed Bug</h3>
+        <p>
+          To test the bug, set the snack amount to 2 and click FEED. The first version adds the value as a string,
+          so I used Chrome DevTools to pause the code, check the variable, and fix it with Number().
+        </p>
+        <output id="feedDebugResult" name="feedDebugResult" for="snackAmount">
+          Feed has not run yet
+        </output>
       </div>
     </section>
   </main>

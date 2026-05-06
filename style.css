@@ -14,6 +14,10 @@ body {
   min-height: 100vh;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Header */
 header {
   width: 100%;
@@ -165,6 +169,36 @@ main {
   flex-shrink: 0;
 }
 
+.snack-control {
+  background-color: #c8e8b0;
+  border: 2px solid #1a2e1a;
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: 1fr 72px;
+  align-items: center;
+  gap: 10px;
+}
+
+.snack-control label {
+  color: #1a2e1a;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 8px;
+}
+
+.snack-control input {
+  width: 100%;
+  min-height: 34px;
+  border: 2px solid #3a6a3a;
+  border-radius: 8px;
+  background-color: #f0ede6;
+  color: #1a2e1a;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 9px;
+  padding: 8px;
+  text-align: center;
+}
+
 /* Game buttons */
 .button-container {
   display: flex;
@@ -223,6 +257,23 @@ main {
   background-color: #1e2a3a;
 }
 
+.scroll-cue {
+  background-color: #f5c542;
+  border: 2px solid #1a2e1a;
+  border-radius: 8px;
+  color: #1a2e1a;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 9px;
+  line-height: 1.5;
+  padding: 12px 14px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.scroll-cue:hover {
+  background-color: #c8e8b0;
+}
+
 /* HW10 DevTools panel */
 .devtools-panel {
   width: min(720px, 100%);
@@ -244,7 +295,7 @@ main {
 .devtools-kicker,
 .devtools-copy h2,
 .snack-debugger h3,
-.snack-fields label,
+.snack-control label,
 .snack-debugger output {
   font-family: 'Press Start 2P', cursive;
 }
@@ -274,11 +325,14 @@ main {
 }
 
 .devtools-actions button,
-.snack-debugger button {
+.snack-debugger output {
   min-height: 42px;
   font-family: 'Press Start 2P', cursive;
   font-size: 7px;
   line-height: 1.4;
+}
+
+.devtools-actions button {
   background-color: #1a3a1a;
   color: #c8e8b0;
   border: 2px solid #6aaa4a;
@@ -288,8 +342,7 @@ main {
   transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
 
-.devtools-actions button:hover,
-.snack-debugger button:hover {
+.devtools-actions button:hover {
   background-color: #f5c542;
   border-color: #f5c542;
   color: #1a2e1a;
@@ -311,33 +364,12 @@ main {
   text-align: center;
 }
 
-.snack-fields {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.snack-field {
-  display: grid;
-  gap: 6px;
-}
-
-.snack-fields label {
+.snack-debugger p {
   color: #1a2e1a;
-  font-size: 7px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
   line-height: 1.5;
-}
-
-.snack-fields input {
-  width: 100%;
-  min-height: 38px;
-  border: 2px solid #3a6a3a;
-  border-radius: 8px;
-  background-color: #f0ede6;
-  color: #1a2e1a;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 9px;
-  padding: 8px;
+  text-align: center;
 }
 
 .snack-debugger output {
@@ -364,9 +396,5 @@ main {
 
   .device-wrapper {
     width: min(300px, 100%);
-  }
-
-  .snack-fields {
-    grid-template-columns: 1fr;
   }
 }

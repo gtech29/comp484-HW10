@@ -23,16 +23,45 @@ var pet_info = { name: "ZORP", happiness: 7, weight: 5, hunger: 5, energy: 8, ag
 // BUTTON FUNCTIONS
 
 function clickedFeedButton() {
+  const snackAmount = document.querySelector("#snackAmount").value;
+
   if (pet_info["hunger"] == 0) {
     showSpeechBubble("*Zorp is already full!*");
   } else {
+    const previousWeight = pet_info["weight"];
+    const updatedWeight = calculateFedWeight(previousWeight, snackAmount);
+    const hungerDrop = Number(snackAmount);
+
     showSpeechBubble("*munch munch*");
-    pet_info["hunger"]--;                                        // less hungry after eating
+    pet_info["hunger"] = pet_info["hunger"] - hungerDrop;        // less hungry after eating
     pet_info["happiness"] < 10 ? pet_info["happiness"]++ : null; // treats make Zorp happy
-    pet_info["weight"] < 10 ? pet_info["weight"]++ : null;       // food adds weight
+    pet_info["weight"] = updatedWeight;                          // intentionally buggy until Number() fix
     pet_info["energy"] < 10 ? pet_info["energy"]++ : null;       // food gives energy
+
+    updateFeedDebugOutput(previousWeight, snackAmount, updatedWeight);
   }
   checkAndUpdatePetInfoInHtml();
+}
+
+function calculateFedWeight(currentWeight, snackAmount) {
+  // DevTools Sources practice:
+  // Set a line-of-code breakpoint on the next line, click FEED, then inspect
+  // currentWeight, snackAmount, updatedWeight, and typeof snackAmount.
+  // The bug happens because input values are strings, so + joins the values.
+  let updatedWeight = currentWeight + snackAmount;
+
+  // Apply the fix after debugging:
+  // let updatedWeight = Number(currentWeight) + Number(snackAmount);
+
+  return updatedWeight;
+}
+
+function updateFeedDebugOutput(previousWeight, snackAmount, updatedWeight) {
+  const feedDebugResult = document.querySelector("#feedDebugResult");
+  if (!feedDebugResult) return;
+
+  feedDebugResult.textContent =
+    "Weight: " + previousWeight + " + " + JSON.stringify(snackAmount) + " = " + updatedWeight;
 }
 
 function clickedPlayButton() {
@@ -93,11 +122,16 @@ function checkAndUpdatePetInfoInHtml() {
   updatePetInfoInHtml();
 }
 
-// Safety net that clamps all stats between 0 and 10 no matter what.
-// Includes the required "happiness" and "weight" keys from the spec.
+// Safety net that clamps numeric stats between 0 and 10.
+// The Feed bug intentionally leaves weight as a string so it is visible in DevTools.
 function checkWeightAndHappinessBeforeUpdating() {
   let stats = ["happiness", "weight", "hunger", "energy"];
   stats.forEach(function (stat) {
+    if (typeof pet_info[stat] !== "number") {
+      console.warn("DevTools bug demo: " + stat + " is a " + typeof pet_info[stat] + ".", pet_info[stat]);
+      return;
+    }
+
     if (pet_info[stat] < 0) pet_info[stat] = 0;
     if (pet_info[stat] > 10) pet_info[stat] = 10;
   });
@@ -150,7 +184,6 @@ function bindDevToolsButtons() {
   $("#cause404").click(cause404Example);
   $("#causeTypeError").click(causeTypeErrorExample);
   $("#causeViolation").click(causeViolationExample);
-  $("#calculateSnacks").click(clickedCalculateSnacksButton);
 }
 
 function logInfoExample() {
@@ -158,7 +191,7 @@ function logInfoExample() {
 }
 
 function logWarningExample() {
-  console.warn("Warning: Zorp's snack counter may be using string values.");
+  console.warn("Warning: Zorp's Feed action is intentionally using a string snack value.");
 }
 
 function logErrorExample() {
@@ -213,28 +246,4 @@ function causeViolationExample() {
   }
 
   console.warn("Finished intentional blocking work for the DevTools violation example.");
-}
-
-function clickedCalculateSnacksButton() {
-  const snack1 = document.querySelector("#snack1").value;
-  const snack2 = document.querySelector("#snack2").value;
-
-  const snackTotal = calculateSnackTotal(snack1, snack2);
-  document.querySelector("#snackResult").textContent = "Zorp has " + snackTotal + " snacks";
-  console.log("Snack calculator result:", { snack1: snack1, snack2: snack2, snackTotal: snackTotal });
-}
-
-function calculateSnackTotal(snack1, snack2) {
-  // DevTools Sources practice:
-  // Set a breakpoint on the next line, click Calculate Snacks, then inspect
-  // snack1, snack2, snackTotal, typeof snack1, and typeof snack2 in Scope or Watch.
-  // The bug appears first because values from inputs are strings, so + joins them.
-  let snackTotal = snack1 + snack2;
-
-  // Fix after debugging:
-  // let snackTotal = Number(snack1) + Number(snack2);
-  // or:
-  // let snackTotal = parseInt(snack1, 10) + parseInt(snack2, 10);
-
-  return snackTotal;
 }

@@ -18,7 +18,7 @@ Open the main GitHub Pages project page in Google Chrome:
 
 [https://gtech29.github.io/comp484-HW10/](https://gtech29.github.io/comp484-HW10/)
 
-Chrome DevTools should be opened on the main GigaPet page, `index.html`, not on a different HTML file. The DevTools controls and snack debugging example are now part of the actual Project 2 app.
+Chrome DevTools should be opened on the main GigaPet page, `index.html`, not on a different HTML file. The DevTools controls and Feed debugging example are now part of the actual Project 2 app.
 
 You can also open `index.html` locally in Google Chrome. GitHub Pages or Live Server is recommended for the 404 Network example.
 
@@ -36,7 +36,7 @@ The main GigaPet page includes buttons for:
 - TypeError
 - Violation warning
 
-The snack calculator on `index.html` is an intentional debugging example. Use the Sources panel to set a breakpoint in `script.js`, inspect the snack input variables, watch the string-concatenation bug happen, and review the commented fix using `Number()` or `parseInt()`.
+The FEED action on `index.html` is an intentional debugging example inside the real pet. Set SNACKS to `2` and click FEED. Since input values come from the DOM as strings, the weight can change from `5` to `52` instead of `7`. Use the Sources panel to set a breakpoint in `script.js`, inspect `currentWeight`, `snackAmount`, `updatedWeight`, and `typeof snackAmount`, then review the commented fix using `Number()`.
 
 The DevTools report and screenshots should show the actual app files, especially `index.html` and `script.js`.
 
