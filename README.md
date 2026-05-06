@@ -1,7 +1,6 @@
-
 # COMP 484 HW10
 
-This version includes a Chrome DevTools practice page for logging, filtering, browser errors, and JavaScript debugging.
+HW10 adds Chrome DevTools logging, browser error, network, performance, and debugging examples directly to the real GigaPet app.
 
 Original Project 2 version: https://github.com/gtech29/comp484-project2
 
@@ -15,21 +14,17 @@ https://github.com/gtech29/comp484-HW10
 
 ## How to Run
 
-Open the GitHub Pages link in Google Chrome:
+Open the main GitHub Pages project page in Google Chrome:
 
 [https://gtech29.github.io/comp484-HW10/](https://gtech29.github.io/comp484-HW10/)
 
-You can also open `index.html` locally in Google Chrome. For the DevTools examples, GitHub Pages or Live Server is recommended so browser and network messages display correctly.
+Chrome DevTools should be opened on the main GigaPet page, `index.html`, not on a different HTML file. The DevTools controls and snack debugging example are now part of the actual Project 2 app.
 
-## Report
-
-The Chrome DevTools implementation report with screenshots is included in:
-
-`assets/devtools-report.pdf`
+You can also open `index.html` locally in Google Chrome. GitHub Pages or Live Server is recommended for the 404 Network example.
 
 ## Chrome DevTools Examples
 
-The DevTools practice page includes examples for:
+The main GigaPet page includes buttons for:
 
 - Log Info
 - Log Warning
@@ -40,34 +35,32 @@ The DevTools practice page includes examples for:
 - 404 network error
 - TypeError
 - Violation warning
-- Filtering by log level, text, regular expression, source, and user messages
-- Reproducing a bug
-- Using the Sources panel
-- Setting a line-of-code breakpoint
-- Checking variable values
-- Using the Scope pane
-- Using Watch expressions
-- Testing a fix in the Console
-- Applying the final fix
+
+The snack calculator on `index.html` is an intentional debugging example. Use the Sources panel to set a breakpoint in `script.js`, inspect the snack input variables, watch the string-concatenation bug happen, and review the commented fix using `Number()` or `parseInt()`.
+
+The DevTools report and screenshots should show the actual app files, especially `index.html` and `script.js`.
+
+## Report
+
+The Chrome DevTools implementation report with screenshots is included in:
+
+`assets/HW10 Chrome Dev Tools.pdf`
 
 ## Project Structure
 
 ```text
 comp484-HW10/
-├── index.html          # Main GigaPet page
-├── style.css           # Main project styling and sad-mode theme
-├── script.js           # Game logic and jQuery interactions
-├── devtools.html       # Chrome DevTools practice page
-├── devTools.css        # Styling for the DevTools practice page
-├── tools.js            # Console logging, browser error, and debugging examples
-├── assets/
-│   └── devtools-report.pdf
-└── images/
-    ├── zorp-normal.png
-    ├── zorp-happy.png
-    └── zorp-sad.png
+|-- index.html          # Main GigaPet page with HW10 DevTools examples
+|-- style.css           # Main project styling and DevTools section styling
+|-- script.js           # Game logic, jQuery interactions, and DevTools examples
+|-- assets/
+|   `-- HW10 Chrome Dev Tools.pdf
+`-- images/
+    |-- zorp-normal.png
+    |-- zorp-happy.png
+    `-- zorp-sad.png
 ```
 
 ## Author
 
-Juan Rodriguez — CSUN COMP 484, Spring 2026
+Juan Rodriguez, CSUN COMP 484, Spring 2026

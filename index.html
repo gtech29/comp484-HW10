@@ -21,8 +21,6 @@
   </header>
 
   <main class="page-wrapper">
-    <a href="devtools.html" class="devTools">DevTools Practice</a>
-    
     <div class="device-wrapper">
       
 
@@ -89,6 +87,42 @@
       </div>
 
     </div>
+
+    <section class="devtools-panel" aria-labelledby="devtools-heading">
+      <div class="devtools-copy">
+        <span class="devtools-kicker">HW10</span>
+        <h2 id="devtools-heading">DevTools Debugging</h2>
+        <p>Open Chrome DevTools on this GigaPet page to inspect console messages, network errors, and breakpoints in script.js.</p>
+      </div>
+
+      <div class="devtools-actions" aria-label="Chrome DevTools console examples">
+        <button type="button" id="logInfo">Log Info</button>
+        <button type="button" id="logWarning">Log Warning</button>
+        <button type="button" id="logError">Log Error</button>
+        <button type="button" id="logTable">Log Table</button>
+        <button type="button" id="logGroup">Log Group</button>
+        <button type="button" id="logCustom">Log Custom</button>
+        <button type="button" id="cause404">Cause 404</button>
+        <button type="button" id="causeTypeError">Cause TypeError</button>
+        <button type="button" id="causeViolation">Cause Violation</button>
+      </div>
+
+      <div class="snack-debugger" aria-labelledby="snack-debugger-heading">
+        <h3 id="snack-debugger-heading">Snack Calculator</h3>
+        <div class="snack-fields">
+          <div class="snack-field">
+            <label for="snack1">First Snack</label>
+            <input type="number" id="snack1" name="snack1" value="2">
+          </div>
+          <div class="snack-field">
+            <label for="snack2">Second Snack</label>
+            <input type="number" id="snack2" name="snack2" value="3">
+          </div>
+        </div>
+        <button type="button" id="calculateSnacks">Calculate Snacks</button>
+        <output id="snackResult" name="snackResult" for="snack1 snack2">Zorp has ? snacks</output>
+      </div>
+    </section>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
